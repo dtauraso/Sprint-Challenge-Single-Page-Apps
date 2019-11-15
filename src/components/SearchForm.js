@@ -31,27 +31,7 @@ export default function SearchForm() {
   const handleChange = event => {
     setSearchTerm(event.target.value)
   }
-  const displayResult = (character) => {
-    // console.log("print character", character)
-    if(character !== {}) {
-
-      return (
-
-        <div>
-          <span>Name: {character.name}</span>
-          <p>Alive, Dead, Or Unknown: {character.status}</p>
-          <p>Species: {character.species}</p>
-
-        </div>
-        )
-    } else {
-
-      return (
-        <p>search first</p>
-      )
-    }
-  }
-
+  
   return (
     <div>
       <section className="search-form">
@@ -80,12 +60,10 @@ export default function SearchForm() {
     {/* // character card here */}
     {/* {displayResult(matchCard)} */}
     {matchCards.map(card => {
-      return (<div>
-        <span>Name: {card.name}</span>
-        <p>Alive, Dead, Or Unknown: {card.status}</p>
-        <p>Species: {card.species}</p>
+      return (
 
-      </div>)
+      <CharacterCard key={card.id} character={card} />
+      )
     })}
     </div>
     

@@ -8,7 +8,7 @@ const Character = styled.div`
 
 `
 export default function CharacterCard(props)  {
-  console.log(props)
+  console.log("character", props)
   return (
     <Character>
       <span>Name: {props.character.name}</span>
