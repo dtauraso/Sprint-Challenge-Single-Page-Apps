@@ -6,7 +6,7 @@ export default function SearchForm() {
 // search filter
 // 
   const [searchTerm, setSearchTerm] = useState("")
-  const [matchCard, setMatchCard] = useState({})
+  const [matchCards, setMatchCards] = useState([])
   useEffect(() => {
     // console.log("got here")
     // morty smith
@@ -17,9 +17,10 @@ export default function SearchForm() {
             const results = characters.filter(character =>
               character.name.toLowerCase().includes(searchTerm.toLowerCase()))
             console.log(results, "size", results.length)
-            if(results.length === 1) {
-              setMatchCard(results[0])
-            }
+            // if(results.length === 1) {
+            //   setMatchCard(results[0])
+            // }
+            setMatchCards(results)
           })
           .catch(error => {
             console.log("error", error)
@@ -31,11 +32,11 @@ export default function SearchForm() {
     setSearchTerm(event.target.value)
   }
   const displayResult = (character) => {
-    console.log("print character", character)
+    // console.log("print character", character)
     if(character !== {}) {
-      console.log("about to print", character)
+
       return (
-        // <CharacterCard props={{character}}/>
+
         <div>
           <span>Name: {character.name}</span>
           <p>Alive, Dead, Or Unknown: {character.status}</p>
@@ -44,7 +45,7 @@ export default function SearchForm() {
         </div>
         )
     } else {
-      console.log("search first")
+
       return (
         <p>search first</p>
       )
@@ -77,8 +78,15 @@ export default function SearchForm() {
     </section>
     
     {/* // character card here */}
-    {displayResult(matchCard)}
-   
+    {/* {displayResult(matchCard)} */}
+    {matchCards.map(card => {
+      return (<div>
+        <span>Name: {card.name}</span>
+        <p>Alive, Dead, Or Unknown: {card.status}</p>
+        <p>Species: {card.species}</p>
+
+      </div>)
+    })}
     </div>
     
   );
