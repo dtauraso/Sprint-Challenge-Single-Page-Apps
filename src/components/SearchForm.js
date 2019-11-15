@@ -35,9 +35,11 @@ export default function SearchForm() {
     if(character !== {}) {
       console.log("about to print", character)
       return (
+        // <CharacterCard props={{character}}/>
         <div>
           <span>Name: {character.name}</span>
           <p>Alive, Dead, Or Unknown: {character.status}</p>
+          <p>Species: {character.species}</p>
 
         </div>
         )

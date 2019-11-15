@@ -13,6 +13,8 @@ export default function CharacterCard(props)  {
     <Character>
       <span>Name: {props.character.name}</span>
       <p>Alive, Dead, Or Unknown: {props.character.status}</p>
+      <p>Species: {props.character.species}</p>
+
     </Character>
   );
 }

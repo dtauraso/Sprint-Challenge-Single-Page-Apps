@@ -12,9 +12,12 @@ export default function App() {
       <Header />
       {/* // 1 */}
       {/* link to welcome */}
-      <Link to="/" >Welcome </Link>
-      <Link to="/characters" >Characters  </Link>
-      <Link to="/search" >Search</Link>
+      <nav>
+        <Link to="/" >Welcome </Link>
+        <Link to="/characters" >Characters  </Link>
+        <Link to="/search" >Search</Link>
+      </nav>
+      
 
       {/* link to search  */}
       <Route exact path="/" component={WelcomePage} />
